@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+
+<head>
+    <title>Modulo×JS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="aside">
+            <div class="aside__link">
+                <h1 class="aside__title">Componenti</h1><br>
+                <a class="aside__a" href="#module">Modulo di contatto</a><br><br>
+                <a class="aside__a" href="#chat">Chat</a><br><br>
+                <a class="aside__a" href="#tab">Stylish table</a>
+            </div>
+            <div class="aside__foot">
+                <p>&lt;/> by Beppe</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="module">
+                <div class="module__title">
+                    <a name="module" class="module--title"># Modulo di contatto</a>
+                </div>
+                <div class="module__form">
+                    <p class="module__text">Ciao!</p><br><br>
+                    <form action="" method="post" id="module">
+                        <label class="module__text fullname" for="fullname">Mi chiamo</label>
+                        <input style="width: 230px" type="text" name="fullname" id="fullname" class="module__form__input" value="Nome e Cognome" onfocus="value=''" />
+                        <label class="module__text" for="job">e al momento</label>
+                        <input style="width: 280px" type="text" name="job" id="job" class="module__form__input" value="Occupazione" onfocus="value=''" /><span class="module__form__dot">.</span><br>
+                        <label class="module__text" for="intro">Mi farebbe piacere partecipare a Ninja Campus perchè</label><br>
+                        <input style="width: 850px" type="text" name="intro" class="module__form__input" value="Introduzione personale" onfocus="value=''" /><br>
+                        <input style="width: 840px" type="text" name="intro" class="module__form__input" value="" /><span class="module__form__dot">.</span><br>
+                        <label class="module__text" for="phone">Il mio numero è</label>
+                        <input style="width: 290px" type="text" name="phone" id="phone" class="module__form__input" value="Contatto telefonico" onfocus="value=''" /><br>
+                        <label class="module__text" for="email">o potete contattarmi sull'indirizzo email</label>
+                        <input style="width: 280px" type="text" name="email" id="email" class="module__form__input" value="Contatto email" onfocus="value=''" /><span class="module__form__dot">.</span><br>
+                        <input style="width: 850px" type="text" name="details" class="module__form__input" value="Domande e dettagli" onfocus="value=''" /><br>
+                        <input style="width: 840px" type="text" name="details" class="module__form__input" value="" /><span class="module__form__dot">.</span><br>
+                        <p class="module__text">Grazie.</p>
+                </div>
+                <div class="module__button">
+                    <input type="submit" class="module__button__submit" value="invia messaggio >" />
+                </div>
+                </form>
+            </div>
+            <div class="chat">
+                <div class="chat__title">
+                    <a name="chat">Chat</a>
+                </div>
+            </div>
+            <div class="tab"></div>
+        </div>
+    </div>
+</body>
+
+</html>
