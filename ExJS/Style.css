@@ -1,0 +1,69 @@
+body {
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+}
+.container {
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: row;
+  height: 2260px;
+}
+/*
+
+Aside
+
+*/
+.aside {
+  flex: none;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #90CCAC;
+  width: 297px;
+  height: 100%;
+}
+.aside__link {
+  flex: 3;
+  margin: 5%;
+}
+.aside__foot {
+  flex: 1;
+  margin 5%;
+}
+/*
+
+Modulo
+
+*/
+.section {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 1063px;
+  margin-left: 297px;
+}
+.module {
+  order: 1;
+  height: 715px;
+  margin: 0;
+  background-color: green;
+}
+.chat {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  height: 715px;
+  margin: 0;
+  background-color: blue;
+}
+.chat__title {
+  flex: none;
+  margin: 10%;
+}
+.tab {
+  order: 3;
+  height: 715px;
+  margin: 0;
+  background-color: black;
+}
