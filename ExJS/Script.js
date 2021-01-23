@@ -7,7 +7,7 @@ $(document).ready(function () {
     var rep = /^(([+]|00)39)?((3[1-6][0-9]))(\d{7})$/;
     return rep.test(Number(phone));
   }
-  $(".module__form__input").change(function validate(e) {
+  $("input.module__form__input").change(function validate(e) {
     e.preventDefault();
     var fullname = $("#fullname").val();
     var job = $("#job").val();
