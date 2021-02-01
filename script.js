@@ -15,9 +15,7 @@ $(document).ready(function () {
   $("#fullname").change(function validate(e) {
     e.preventDefault();
     var fullname = $("#fullname").val();
-
     $(".error").remove();
-
     if (fullname.length < 4) {
       $("#fullname").before('<span class="error">Campo Obbligatorio</span>');
       $("#fullname").addClass("invalid");
@@ -28,9 +26,7 @@ $(document).ready(function () {
   $("#job").change(function validate(e) {
     e.preventDefault();
     var job = $("#job").val();
-
     $(".error").remove();
-
     if (job.length < 3) {
       $("#job").before('<span class="error">Campo Obbligatorio</span>');
       $("#job").addClass("invalid");
@@ -41,9 +37,7 @@ $(document).ready(function () {
   $("#phone").change(function validate(e) {
     e.preventDefault();
     var phone = $("#phone").val();
-
     $(".error").remove();
-
     if (!validatePhone(phone)) {
       $("#phone").before('<span class="error">numero non valido</span>');
       $("#phone").addClass("invalid");
@@ -54,9 +48,7 @@ $(document).ready(function () {
   $("#email").change(function validate(e) {
     e.preventDefault();
     var email = $("#email").val();
-
     $(".error").remove();
-
     if (!validateEmail(email)) {
       $("#email").before('<span class="error">email non valida</span>');
       $("#email").addClass("invalid");
@@ -70,9 +62,7 @@ $(document).ready(function () {
     var job = $("#job").val();
     var phone = $("#phone").val();
     var email = $("#email").val();
-
     $(".error").remove();
-
     if (fullname.length == 0) {
       $("#fullname").before('<span class="error">Campo Obbligatorio</span>');
       $("#fullname").addClass("invalid");
@@ -98,12 +88,31 @@ $(document).ready(function () {
       $("#email").removeClass("invalid");
     }
   });
-
   /*
 
   Chat
 
   */
+
+  var typingTimer;
+  var doneTypingInterval = 2000;
+  function scrollDown() {
+    $(".chat__window__message")[0].scrollTop = $(
+      ".chat__window__message"
+    )[0].scrollHeight;
+  }
+
+  function doneTyping() {
+    var message = $(".message--box--user").first().clone();
+    message.find("p").text("Miiinchia!");
+    message.insertAfter(".message--box--mine:last");
+    scrollDown();
+  }
+
+  function resetTimer() {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+  }
 
   $(".chat__window__write__button").on(
     "click",
@@ -114,49 +123,30 @@ $(document).ready(function () {
           `<div class="message--box--mine"><p class='message'>${message}</p></div>`
         )
       );
+      $(".chat__window__write__input").val("");
+      $(".chat__window__write__input").attr(
+        "placeholder",
+        "Scrivi messaggio..."
+      );
+      scrollDown();
+      resetTimer();
     }
   );
-
-  /* $(function () {
-    $(".chat__window__write").on("submit", function (event) {
-      event.preventDefault();
-      var message = $(".message--box--mine").first().clone();
-      message.find("p").text($(".chat__window__write__input").val());
-      message.insertAfter(".message--box--user:last");
-      $(".chat__window__write__input").val("");
-    });*/
-  var typingTimer;
-  var doneTypingInterval = 2000;
-  var $input = $(".chat__window__write__input");
-  $input.on("keyup", function () {
-    clearTimeout(typingTimer);
-    typingTimer = setTimeout(doneTyping, doneTypingInterval);
-  });
-  $input.on("keydown", function () {
-    clearTimeout(typingTimer);
-  });
-  function doneTyping() {
-    var message = $(".message--box--user").first().clone();
-    message.find("p").text("Miiinchia!");
-    message.insertAfter(".message--box--mine:last");
-  }
-});
-
-/*
+  /*
 
 table
 
 */
-$(".tab__title__button").on("click", function loadJSONDoc() {
-  console.log("PROVA");
-  // fetch("https://pebove.github.io/sube.json")
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data["customers"]);
-  //     loadData(data["customers"]);
-  //     $(".tab__content__load__nodata").hide();
-  //   })
-  //   .catch((error) => console.error(error));
+  $(".tab__title__button").on("click", function loadJSONDoc() {
+    fetch("https://pebove.github.io/sube.json")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data["customers"]);
+        loadData(data["customers"]);
+        $(".tab__content__load__nodata").hide();
+      })
+      .catch((error) => console.error(error));
+  });
 });
 
 function deleteRow(btn) {
@@ -169,18 +159,17 @@ function loadData(x) {
   var table = "";
   for (i = 0; i < x.length; i++) {
     table +=
-      "<br" +
-      "<tr><td class='tab--data' style='padding-left: 70px'>" +
+      "<tr style='height: 70px'><td class='tab--data' style='padding-left: 20px'>" +
+      "<div class='tab--load--img'></div>" +
+      "</td><td class='tab--data' style='padding-left: 20px'>" +
       x[i].name +
-      "</td><td class='tab--data' style='padding-left: 65px'>" +
+      "</td><td class='tab--data' style='padding-left: 50px'>" +
       x[i].age +
-      "</td><td class='tab--data' style='padding-left: 140px'>" +
+      "</td><td class='tab--data' style='padding-left: 150px'>" +
       x[i].job +
       "</td><td class='tab--data' style='padding-left: 130px'>" +
       `<button class='tab--delete--button' onclick='deleteRow(this)'>Cancella</button>` +
-      "</td></tr>" +
-      "<br>" +
-      "<br>";
+      "</td></tr>";
   }
   document.getElementById("data").innerHTML = table;
 }

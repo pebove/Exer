@@ -360,3 +360,9 @@ Tab
   font: normal normal normal 18px/23px Source Code Pro;
   color: #333333;
 }
+.tab--load--img {
+  width: 43px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: grey;
+}
