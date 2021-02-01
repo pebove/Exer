@@ -1,0 +1,8 @@
+{
+    "costumers": [
+        {"name":"Aldo Baglio","age" : "32", "job":"Comico"},
+        {"name": "Luca Asd", "age": "24", "job":"idraulico"},
+        {"name": "Francesco Dsa", "age": "26", "job":"architetto"}]
+}  
+ 
+
