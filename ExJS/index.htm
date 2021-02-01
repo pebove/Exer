@@ -91,8 +91,22 @@
             </div>
             <div class="tab">
                 <div class="tab__title">
-                    <a name="Tabella"># Stylish table</a>
+                    <div class="tab__title__link"><a name="Tabella"># Stylish table</a></div>
+                    <button type="button" class="tab__title__button">Ricarica dati</button>
                 </div>
+                <div class="tab__content">
+                    <table class="tab__content__head">
+                            <tr class="tab__content__head--font">
+                            <th class="tab__content__head--font">Cliente</th>
+                            <th class="tab__content__head--font">Età</th>
+                            <th class="tab__content__head--font">Posizione</th>
+                            <th class="tab__content__head--font">Azioni</th>
+                    </table>
+                    <div class="tab__content__load">
+                        <table id="data"></table>
+                        <p class="tab__content__load__nodata">Nessun dato</p>
+                    </div>
+                 </div>
             </div>
         </div>
     </div>

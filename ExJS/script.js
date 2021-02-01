@@ -73,13 +73,13 @@ $(document).ready(function () {
 
     $(".error").remove();
 
-    if (fullname.length < 4) {
+    if (fullname.length == 0) {
       $("#fullname").before('<span class="error">Campo Obbligatorio</span>');
       $("#fullname").addClass("invalid");
     } else {
       $("#fullname").removeClass("invalid");
     }
-    if (job.length < 3) {
+    if (job.length == 0) {
       $("#job").before('<span class="error">Campo Obbligatorio</span>');
       $("#job").addClass("invalid");
     } else {
@@ -98,28 +98,88 @@ $(document).ready(function () {
       $("#email").removeClass("invalid");
     }
   });
-  $(function () {
+});
+/*
+
+  Chat
+
+  */
+$(document).ready(function () {
+  $(".chat__window__write__button").on(
+    "click",
+    function addChatMessage(message) {
+      var message = $(".chat__window__write__input").val();
+      $(".chat__window__message").append(
+        $(
+          `<div class="message--box--mine"><p class='message'>${message}</p></div>`
+        )
+      );
+    }
+  );
+
+  /* $(function () {
     $(".chat__window__write").on("submit", function (event) {
       event.preventDefault();
       var message = $(".message--box--mine").first().clone();
       message.find("p").text($(".chat__window__write__input").val());
       message.insertAfter(".message--box--user:last");
       $(".chat__window__write__input").val("");
-    });
-    var typingTimer;
-    var doneTypingInterval = 2000;
-    var $input = $(".chat__window__write__input");
-    $input.on("keyup", function () {
-      clearTimeout(typingTimer);
-      typingTimer = setTimeout(doneTyping, doneTypingInterval);
-    });
-    $input.on("keydown", function () {
-      clearTimeout(typingTimer);
-    });
-    function doneTyping() {
-      var message = $(".message--box--user").first().clone();
-      message.find("p").text("Miiinchia!");
-      message.insertAfter(".message--box--mine:last");
-    }
+    });*/
+  var typingTimer;
+  var doneTypingInterval = 2000;
+  var $input = $(".chat__window__write__input");
+  $input.on("keyup", function () {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, doneTypingInterval);
   });
+  $input.on("keydown", function () {
+    clearTimeout(typingTimer);
+  });
+  function doneTyping() {
+    var message = $(".message--box--user").first().clone();
+    message.find("p").text("Miiinchia!");
+    message.insertAfter(".message--box--mine:last");
+  }
 });
+/*
+
+table
+
+*/
+
+$(".tab__title__button").on("click", function loadJSONDoc() {
+  fetch("https://pebove.github.io/sube.json")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data["customers"]);
+      loadData(data["customers"]);
+      $(".tab__content__load__nodata").hide();
+    })
+    .catch((error) => console.error(error));
+});
+
+function deleteRow(btn) {
+  var row = btn.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+function loadData(x) {
+  var i;
+  var table = "";
+  for (i = 0; i < x.length; i++) {
+    table +=
+      "<br" +
+      "<tr><td class='tab--data' style='padding-left: 70px'>" +
+      x[i].name +
+      "</td><td class='tab--data' style='padding-left: 65px'>" +
+      x[i].age +
+      "</td><td class='tab--data' style='padding-left: 140px'>" +
+      x[i].job +
+      "</td><td class='tab--data' style='padding-left: 130px'>" +
+      `<button class='tab--delete--button' onclick='deleteRow(this)'>Cancella</button>` +
+      "</td></tr>" +
+      "<br>" +
+      "<br>";
+  }
+  document.getElementById("data").innerHTML = table;
+}

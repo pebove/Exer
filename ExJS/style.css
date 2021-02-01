@@ -295,14 +295,68 @@ Tab
   order: 3;
   height: 715px;
   margin: 0;
-  background-color: black;
 }
 .tab__title {
   flex: 1, 1;
+  display: flex;
+}
+.tab__title__link {
+  flex: none;
   margin-left: 7%;
-  margin-top: 0;
+  margin-top: 1%;
   margin-bottom: 5%;
   font: normal normal normal 40px/50px Source Code Pro;
   color: #ffffff;
   text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+}
+.tab__title__button {
+  flex: none;
+  margin-left: 4%;
+  background: #eaeaea 0% 0% no-repeat padding-box;
+  border-color: transparent;
+  width: 234px;
+  height: 67px;
+  font: normal normal normal 22px/28px Source Code Pro;
+}
+.tab__content {
+  flex: 3;
+  margin-left: 7%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow-y: auto;
+  width: 859px;
+  border: 1px solid #aebed8;
+}
+.tab__content__head {
+  flex: flex-start;
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 859px;
+  height: 86px;
+  background: #aebed8 0% 0% no-repeat padding-box;
+  border-collapse: collapse;
+}
+.tab__content__head--font {
+  font: normal normal 600 18px/23px Source Code Pro;
+  color: #ffffff;
+}
+.tab__content__load {
+  flex: 1;
+}
+.tab__content__load__nodata {
+  font-size: 22px;
+  text-align: center;
+}
+.tab--delete--button {
+  background-color: transparent;
+  border: transparent;
+  text-decoration: underline;
+  font: normal normal normal 18px/23px Source Code Pro;
+  text-align: end;
+  color: #333333;
+}
+.tab--data {
+  font: normal normal normal 18px/23px Source Code Pro;
+  color: #333333;
 }
