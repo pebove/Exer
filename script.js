@@ -101,11 +101,20 @@ $(document).ready(function () {
       ".chat__window__message"
     )[0].scrollHeight;
   }
-
   function doneTyping() {
     var message = $(".message--box--user").first().clone();
-    message.find("p").text("Miiinchia!");
+
+    message
+
+      .find("p")
+
+      .text("Miiinchia!");
+
     message.insertAfter(".message--box--mine:last");
+    function madeArrow() {
+      message.before('<span class="message--box--user--arrow--bonus"></span>');
+    }
+    madeArrow();
     scrollDown();
   }
 
@@ -120,7 +129,7 @@ $(document).ready(function () {
       var message = $(".chat__window__write__input").val();
       $(".chat__window__message").append(
         $(
-          `<div class="message--box--mine"><p class='message'>${message}</p></div>`
+          `<div class="message--box--mine"><p class='message'>${message}</p><span class="message--box--mine--arrow"></span></div>`
         )
       );
       $(".chat__window__write__input").val("");

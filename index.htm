@@ -67,12 +67,15 @@
                             </div>
                         </div>
                         <div class="chat__window__message__user">
-                            <div class="message--box--user">
-                                <p class="message">Ciao, come posso aiutarti?</p>
+                            <span class="message--box--user--arrow"></span>
+                            <div class="message--box--user"> 
+                                 <p class="message">Ciao, come posso aiutarti?</p>
                             </div>
                             <div class="message--box--mine">
                                 <p class="message">Vorrei un etto di prosciutto</p>
+                                <span class="message--box--mine--arrow"></span>
                             </div> 
+                            <span class="message--box--user--arrow"></span>
                             <div class="message--box--user">
                                 <p class="message">Ecco a te!</p>
                             </div>
@@ -84,7 +87,7 @@
                         </div>
                     </div>
                     <form onclick="return false" class="chat__window__write">
-                        <input type="text" class="chat__window__write__input" value="Scrivi un messaggio..." onfocus="value=''" />
+                        <input type="text" class="chat__window__write__input" placeholder="Scrivi un messaggio..."/>
                         <button type="submit" class="chat__window__write__button">Invia messaggio ></button>
                     </form>
                 </div>

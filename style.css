@@ -223,15 +223,50 @@ Chat
   margin-bottom: 4px;
   margin-left: 4%;
 }
+.message--box--user--arrow {
+  flex: none;
+  overflow: visible;
+  width: 0;
+  height: 0;
+  margin-left: 50px;
+  margin-bottom: -1px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e6f7ff;
+}
+.message--box--user--arrow--bonus {
+  flex: none;
+  overflow: visible;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e6f7ff;
+  margin-left: 50px;
+  margin-bottom: -1px;
+}
 .message--box--mine {
   flex: none;
   background: #f4f6f7 0% 0% no-repeat padding-box;
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
   width: 290px;
   height: 39px;
   margin-bottom: 4px;
   margin-left: 60%;
   margin-right: 10%;
+}
+.message--box--mine--arrow {
+  flex: none;
+  overflow: visible;
+  width: 0;
+  height: 0;
+  margin-top: -1px;
+  margin-left: 255px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #f4f6f7;
 }
 .message--box--user--gift {
   background: #f4f6f7 0% 0% no-repeat padding-box;
