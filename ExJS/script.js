@@ -98,13 +98,13 @@ $(document).ready(function () {
       $("#email").removeClass("invalid");
     }
   });
-});
-/*
+
+  /*
 
   Chat
 
   */
-$(document).ready(function () {
+
   $(".chat__window__write__button").on(
     "click",
     function addChatMessage(message) {
@@ -141,21 +141,22 @@ $(document).ready(function () {
     message.insertAfter(".message--box--mine:last");
   }
 });
+
 /*
 
 table
 
 */
-
 $(".tab__title__button").on("click", function loadJSONDoc() {
-  fetch("https://pebove.github.io/sube.json")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data["customers"]);
-      loadData(data["customers"]);
-      $(".tab__content__load__nodata").hide();
-    })
-    .catch((error) => console.error(error));
+  console.log("PROVA");
+  // fetch("https://pebove.github.io/sube.json")
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data["customers"]);
+  //     loadData(data["customers"]);
+  //     $(".tab__content__load__nodata").hide();
+  //   })
+  //   .catch((error) => console.error(error));
 });
 
 function deleteRow(btn) {
